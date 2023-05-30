@@ -1,0 +1,115 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: "Gayathri Thin", serif;
+    background: linear-gradient(45deg, #fffbc3, #3c7034);
+    color: #333;
+}
+
+h1 {
+    position: absolute;
+    left: 650px;
+    top: 240px;
+}
+
+#profile-picture {
+    position: absolute;
+    left: 410px;
+    top: 100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #254f3e;
+}
+
+.game-link1 {
+    position: absolute;
+    left: 410px;
+    top: 400px;
+    text-align: center;
+}
+
+.game-link2 {
+    position: absolute;
+    left: 800px;
+    top: 400px;
+    text-align: center;
+}
+
+.game-link3 {
+    position: absolute;
+    left: 410px;
+    top: 600px;
+    text-align: center;
+}
+
+.game-link4 {
+    position: absolute;
+    left: 800px;
+    top: 600px;
+    text-align: center;
+}
+
+.average-score {
+    height: 350px;
+    position: absolute;
+    left: 1190px;
+    top: 400px;
+    text-align: center;
+}
+.game-link1 rect,
+.game-link2 rect,
+.game-link3 rect,
+.game-link4 rect,
+.average-score rect {
+    stroke: #333;
+    stroke-width: 3px;
+    fill: white;
+}
+
+.game-link1 rect {
+    fill: #2E8B57;
+}
+
+.game-link2 rect {
+    fill:  #2E8B57;
+}
+
+.game-link3 rect {
+    fill:  #2E8B57;
+}
+
+.game-link4 rect {
+    fill: #2E8B57;
+}
+
+.average-score rect {
+    fill:  #2E8B57;
+}
+
+.game-link-text,
+.average-score-text {
+    font-family: "Gayathri Thin", serif;
+    font-size: 27px;
+    fill: white;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+.footer {
+    background-color: #254f3e;
+    margin-top: 900px;
+    height: 75px;
+    width: 101%;
+    text-align: center;
+    color: white;
+}
+
+.footer a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}

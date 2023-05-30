@@ -1,0 +1,53 @@
+package WG.by.fpmibsu.service;
+
+import WG.by.fpmibsu.dao.*;
+import WG.by.fpmibsu.entity.FlagQuiz;
+import WG.by.fpmibsu.entity.User;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class FlagService {
+    public static int returnNum() throws SQLException, DaoException {
+        Connection connection = ConnectionCreator.createConnection();
+        FlagQuizDao flagQuizDao = new FlagQuizDao(connection);
+        int count = flagQuizDao.returnCount(connection);
+        return (int) (Math.random() * count);
+    }
+    public static void init(HttpServletRequest req) throws SQLException, DaoException {
+        Connection connection = ConnectionCreator.createConnection();
+        FlagQuizDao flagQuizDao = new FlagQuizDao(connection);
+        FlagQuiz flagQuiz = flagQuizDao.read(0,connection);
+        req.setAttribute("img","image/flags/" + (flagQuiz.getAnswerCountry().getFlag().replace(" ", ""))  + ".png");
+        req.setAttribute("o1", flagQuiz.getFirstVariant().getName());
+        req.setAttribute("o2", flagQuiz.getSecondVariant().getName());
+        req.setAttribute("o3", flagQuiz.getThirdVariant().getName());
+        req.setAttribute("o4", flagQuiz.getFourthVariant().getName());
+
+    }
+    public static boolean answer(HttpServletRequest request) throws SQLException, DaoException {
+        Connection connection = ConnectionCreator.createConnection();
+        FlagQuizDao flagQuizDao = new FlagQuizDao(connection);
+        FlagQuiz flagQuiz = flagQuizDao.read(0,connection);
+        HttpSession session = request.getSession();
+        int ID = (int) session.getAttribute("ID");
+        int answer = flagQuiz.getAnswer();
+        int var = Integer.parseInt(request.getParameter("option"));
+        Connection connection1 = ConnectionCreator.createConnection();
+        UserDao userDao = new UserDao(connection1);
+        User user = userDao.read(ID, connection);
+        connection1 = ConnectionCreator.createConnection();
+        if (answer == var) {
+            user.setFlagPassed(user.getFlagPassed()+1);
+            userDao.update(ID, user, connection1);
+            return true;
+        } else{
+            user.setFlagFailed(user.getFlagFailed()+1);
+            userDao.update(ID, user, connection1);
+            return false;
+        }
+    }
+}

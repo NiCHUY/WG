@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="css/enter-reg.css">
+<html>
+<head>
+    <title>World Guru</title>
+    <script>
+        sessionStorage.clear();
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            var href;
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="form-container">
+    <h1>World Guru</h1>
+    <form action="register" method="POST" onsubmit = "return validateForm()">
+        <div class="form-input">
+            <label for="username"></label><input type="text" id="username" name="username" required placeholder="Login">
+        </div>
+
+        <div class="form-input">
+            <label for="password"></label><input type="password" id="password" name="password" required
+                                                 placeholder="Password">
+        </div>
+
+        <div class="form-input">
+            <label for="confirmPassword"></label><input type="password" id="confirmPassword" name="confirmPassword"
+                                                        required placeholder="Confirm password">
+        </div>
+        <a href="/login.html"><input class="form-container" type="submit" value="Sign up"></a>
+        <p>Already have an account?<a href="login.html">  Sign in</a></p>
+    </form>
+</div>
+</body>
+</html>

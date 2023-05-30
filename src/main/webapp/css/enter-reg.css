@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Gayathri:wght@100&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Gayathri Thin", serif;
+    background: linear-gradient(45deg, #fffbc3, #3c7034);
+}
+
+h1 {
+    font-family: 'Gayathri', sans-serif;
+    font-weight: 100;
+    font-size: 80px;
+    color: #333;
+    text-align: center;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.form-input input::placeholder {
+    color: #999999;
+    opacity: 1;
+}
+
+.form-input input:focus::placeholder {
+    opacity: 0;
+}
+
+.form-input {
+    margin-bottom: 30px;
+}
+
+.form-input input {
+    font-family: 'Gayathri', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.form-input label {
+    position: absolute;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+.form-container {
+    font-family: 'Gayathri', sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+}
+a {
+    color: #064f16;
+}
