@@ -7,11 +7,11 @@ import java.sql.Statement;
 import java.util.List;
 
 public interface ModeDao <ID, T extends ModePrototype>{
-    boolean create(T t, Connection connection) throws DaoException, DaoException;
-    T read(ID id, Connection connection) throws DaoException, DaoException;
-    T update(T t, Connection connection) throws DaoException, DaoException;
-    boolean delete(ID id, Connection connection) throws DaoException, DaoException;
-    List<T> readAll(Connection connection) throws DaoException, DaoException;
+    boolean create(T t) throws DaoException, DaoException;
+    T read(ID id) throws DaoException, DaoException;
+    T update(T t) throws DaoException, DaoException;
+    boolean delete(ID id) throws DaoException, DaoException;
+    List<T> readAll() throws DaoException, DaoException;
 
     default void close(Statement statement) {
         try {

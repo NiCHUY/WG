@@ -1,20 +1,6 @@
 package WG.by.fpmibsu.dao.pull;
 
-import java.sql.Array;
-import java.sql.Blob;
-import java.sql.CallableStatement;
-import java.sql.Clob;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.NClob;
-import java.sql.PreparedStatement;
-import java.sql.SQLClientInfoException;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.SQLXML;
-import java.sql.Savepoint;
-import java.sql.Statement;
-import java.sql.Struct;
+import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
@@ -169,12 +155,10 @@ public class PooledConnection implements Connection, Comparable<PooledConnection
 	public boolean isReadOnly() throws SQLException {
 		return connection.isReadOnly();
 	}
-
 	@Override
 	public boolean isValid(int arg0) throws SQLException {
 		return connection.isValid(arg0);
 	}
-
 	@Override
 	public String nativeSQL(String arg0) throws SQLException {
 		return connection.nativeSQL(arg0);

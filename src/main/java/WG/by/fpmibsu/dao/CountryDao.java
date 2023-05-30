@@ -6,10 +6,10 @@ import java.awt.*;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CountryDao {
+public class CountryDao extends ConnectionInit {
     Connection connection;
-    public CountryDao(Connection connection) {
-        this.connection = connection;
+    public CountryDao() throws DaoException {
+        super();
     }
     private final String update = "UPDATE Country SET Name = ?, Area = ?, Population = ?," +
             " Continent = ?, Fact = ?, Flag = ?, Territory = ? WHERE Country_ID = ?";
@@ -18,7 +18,8 @@ public class CountryDao {
     private final String read = "SELECT * FROM Country WHERE Country_ID = ?";
     public void CountryDAO() {}
 
-    public void update(Country country, Connection connection) throws SQLException {
+    public void update(Country country) throws SQLException, DaoException {
+        connection = connectionPool.getConnection();
         PreparedStatement statement = connection.prepareStatement(update);
         statement.setString(1, country.getName());
         statement.setFloat(2, country.getArea());
@@ -32,15 +33,17 @@ public class CountryDao {
         statement.close();
     }
 
-    public void delete(Country country, Connection connection) throws SQLException {
+    public void delete(Country country) throws SQLException, DaoException {
+        connection = connectionPool.getConnection();
         PreparedStatement statement = connection.prepareStatement(delete);
         statement.setInt(1, country.getID());
         statement.executeUpdate();
         statement.close();
     }
 
-    public ArrayList<Country> readAll(Connection connection) throws SQLException {
+    public ArrayList<Country> readAll() throws SQLException, DaoException {
         ArrayList<Country> Country = new ArrayList<>();
+        connection = connectionPool.getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(readAll);
         while (resultSet.next()) {
@@ -61,7 +64,8 @@ public class CountryDao {
         return Country;
     }
 
-    public Country read(int id, Connection connection) throws SQLException {
+    public Country read(int id) throws SQLException, DaoException {
+        connection = connectionPool.getConnection();
         PreparedStatement statement = connection.prepareStatement(read);
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();

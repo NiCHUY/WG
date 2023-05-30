@@ -6,11 +6,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompareFactsQuizDao implements ModeDao<Integer, CompareFactsQuiz> {
+public class CompareFactsQuizDao extends ConnectionInit implements ModeDao<Integer, CompareFactsQuiz> {
     private Connection connection;
 
-    public CompareFactsQuizDao(Connection connection) {
-        this.connection = connection;
+    public CompareFactsQuizDao() throws DaoException {
+        super();
     }
     private final String create = "INSERT INTO CompareFactQuiz (Question1, Question2, Question3, Question4," +
             " Variant1, Variant2, Variant3, Variant4, Answer1, Answer2, Answer3, Answer4)" +
@@ -22,11 +22,9 @@ public class CompareFactsQuizDao implements ModeDao<Integer, CompareFactsQuiz> {
     private final String delete = "DELETE FROM CompareFactQuiz WHERE CompareFactQuiz_ID = ?";
     private final String readALL = "SELECT * FROM CompareFactQuiz";
 
-    public CompareFactsQuizDao() {
-    }
-
     @Override
-    public boolean create(CompareFactsQuiz compareFactsQuiz, Connection connection) throws DaoException {
+    public boolean create(CompareFactsQuiz compareFactsQuiz) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(create)) {
             statement.setString(1, compareFactsQuiz.getFirstQuestion());
             statement.setString(2, compareFactsQuiz.getSecondQuestion());
@@ -48,7 +46,8 @@ public class CompareFactsQuizDao implements ModeDao<Integer, CompareFactsQuiz> {
     }
 
     @Override
-    public CompareFactsQuiz read(Integer id, Connection connection) throws DaoException {
+    public CompareFactsQuiz read(Integer id) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(read)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
@@ -66,14 +65,10 @@ public class CompareFactsQuizDao implements ModeDao<Integer, CompareFactsQuiz> {
                 int secondAnswer = resultSet.getInt("Answer2");
                 int thirdAnswer = resultSet.getInt("Answer3");
                 int fourthAnswer = resultSet.getInt("Answer4");
-                connection = ConnectionCreator.createConnection();
-                Country variant1 = new CountryDao(connection).read(variant1ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant2 = new CountryDao(connection).read(variant2ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant3 = new CountryDao(connection).read(variant3ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant4 = new CountryDao(connection).read(variant4ID, connection);
+                Country variant1 = new CountryDao().read(variant1ID);
+                Country variant2 = new CountryDao().read(variant2ID);
+                Country variant3 = new CountryDao().read(variant3ID);
+                Country variant4 = new CountryDao().read(variant4ID);
                 return new CompareFactsQuiz(compareFactsQuizID, firstQuestion, secondQuestion, thirdQuestion, fourthQuestion, variant1, variant2, variant3, variant4, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
             } else {
                 return null;
@@ -84,7 +79,8 @@ public class CompareFactsQuizDao implements ModeDao<Integer, CompareFactsQuiz> {
     }
 
     @Override
-    public CompareFactsQuiz update(CompareFactsQuiz compareFactsQuiz, Connection connection) throws DaoException {
+    public CompareFactsQuiz update(CompareFactsQuiz compareFactsQuiz) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(update)) {
             statement.setString(1, compareFactsQuiz.getFirstQuestion());
             statement.setString(2, compareFactsQuiz.getSecondQuestion());
@@ -111,7 +107,8 @@ public class CompareFactsQuizDao implements ModeDao<Integer, CompareFactsQuiz> {
     }
 
     @Override
-    public boolean delete(Integer id, Connection connection) throws DaoException {
+    public boolean delete(Integer id) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(delete)) {
             statement.setInt(1, id);
             int rowsDeleted = statement.executeUpdate();
@@ -122,7 +119,8 @@ public class CompareFactsQuizDao implements ModeDao<Integer, CompareFactsQuiz> {
     }
 
     @Override
-    public List<CompareFactsQuiz> readAll(Connection connection) throws DaoException {
+    public List<CompareFactsQuiz> readAll() throws DaoException {
+        connection = connectionPool.getConnection();
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(readALL);
             List<CompareFactsQuiz> compareFactsQuizzes = new ArrayList<>();
@@ -140,14 +138,10 @@ public class CompareFactsQuizDao implements ModeDao<Integer, CompareFactsQuiz> {
                 int secondAnswer = resultSet.getInt("Answer2");
                 int thirdAnswer = resultSet.getInt("Answer3");
                 int fourthAnswer = resultSet.getInt("Answer4");
-                connection = ConnectionCreator.createConnection();
-                Country variant1 = new CountryDao(connection).read(variant1ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant2 = new CountryDao(connection).read(variant2ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant3 = new CountryDao(connection).read(variant3ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant4 = new CountryDao(connection).read(variant4ID, connection);
+                Country variant1 = new CountryDao().read(variant1ID);
+                Country variant2 = new CountryDao().read(variant2ID);
+                Country variant3 = new CountryDao().read(variant3ID);
+                Country variant4 = new CountryDao().read(variant4ID);
                 CompareFactsQuiz compareFactsQuiz = new CompareFactsQuiz(compareFactsQuizID, firstQuestion, secondQuestion, thirdQuestion, fourthQuestion, variant1, variant2, variant3, variant4, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
                 compareFactsQuizzes.add(compareFactsQuiz);
             }

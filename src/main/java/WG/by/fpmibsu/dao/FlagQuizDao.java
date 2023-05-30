@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
+public class FlagQuizDao extends ConnectionInit implements ModeDao<Integer, FlagQuiz> {
     final private String create = "INSERT INTO FlagQuiz (Country_ID, Variant1," +
             " Variant2, Variant3, 4) VALUES (?, ?, ?, ?, ?)";
     final private String read = "SELECT * FROM FlagQuiz WHERE FlagQuiz_ID = ?";
@@ -17,12 +17,13 @@ public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
     final private String readAll = "SELECT * FROM FlagQuiz";
     final private String count = "SELECT COUNT(*) AS quantity FROM FlagQuiz;";
      Connection connection;
-    public FlagQuizDao(Connection connection) {
-        this.connection = connection;
+    public FlagQuizDao() throws DaoException {
+        super();
     }
 
     @Override
-    public boolean create(FlagQuiz flagQuiz, Connection connection) throws DaoException {
+    public boolean create(FlagQuiz flagQuiz) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(create)) {
             statement.setInt(1, flagQuiz.getAnswerCountry().getID());
             statement.setInt(2, flagQuiz.getFirstVariant().getID());
@@ -36,8 +37,9 @@ public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
         }
     }
 
-    public int returnCount(Connection connection) throws DaoException {
+    public int returnCount() throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             String query = count;
             int quantity = -1;
             Statement statement = connection.createStatement();
@@ -57,7 +59,8 @@ public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
     }
 
     @Override
-    public FlagQuiz read(Integer id, Connection connection) throws DaoException {
+    public FlagQuiz read(Integer id) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(read)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
@@ -68,16 +71,11 @@ public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
                 int variant2ID = resultSet.getInt("Variant2");
                 int variant3ID = resultSet.getInt("Variant3");
                 int variant4ID = resultSet.getInt("Variant4");
-                connection = ConnectionCreator.createConnection();
-                Country answerCountry = new CountryDao(connection).read(answerCountryID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant1 = new CountryDao(connection).read(variant1ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant2 = new CountryDao(connection).read(variant2ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant3 = new CountryDao(connection).read(variant3ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant4 = new CountryDao(connection).read(variant4ID, connection);
+                Country answerCountry = new CountryDao().read(answerCountryID);
+                Country variant1 = new CountryDao().read(variant1ID);
+                Country variant2 = new CountryDao().read(variant2ID);
+                Country variant3 = new CountryDao().read(variant3ID);
+                Country variant4 = new CountryDao().read(variant4ID);
                 return new FlagQuiz(flagQuizID, answerCountry, variant1, variant2, variant3, variant4);
             } else {
                 return null;
@@ -88,7 +86,8 @@ public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
     }
 
     @Override
-    public FlagQuiz update(FlagQuiz flagQuiz, Connection connection) throws DaoException {
+    public FlagQuiz update(FlagQuiz flagQuiz) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(update)) {
             statement.setInt(1, flagQuiz.getAnswerCountry().getID());
             statement.setInt(2, flagQuiz.getFirstVariant().getID());
@@ -108,7 +107,8 @@ public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
     }
 
     @Override
-    public boolean delete(Integer id, Connection connection) throws DaoException {
+    public boolean delete(Integer id) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(delete)) {
             statement.setInt(1, id);
             int rowsDeleted = statement.executeUpdate();
@@ -119,7 +119,8 @@ public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
     }
 
     @Override
-    public List<FlagQuiz> readAll(Connection connection) throws DaoException {
+    public List<FlagQuiz> readAll() throws DaoException {
+        connection = connectionPool.getConnection();
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(readAll);
             List<FlagQuiz> flagQuizzes = new ArrayList<>();
@@ -130,16 +131,11 @@ public class FlagQuizDao implements ModeDao<Integer, FlagQuiz> {
                 int variant2ID = resultSet.getInt("Variant2");
                 int variant3ID = resultSet.getInt("Variant3");
                 int variant4ID = resultSet.getInt("Variant4");
-                connection = ConnectionCreator.createConnection();
-                Country answerCountry = new CountryDao(connection).read(answerCountryID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant1 = new CountryDao(connection).read(variant1ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant2 = new CountryDao(connection).read(variant2ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant3 = new CountryDao(connection).read(variant3ID, connection);
-                connection = ConnectionCreator.createConnection();
-                Country variant4 = new CountryDao(connection).read(variant4ID, connection);
+                Country answerCountry = new CountryDao().read(answerCountryID);
+                Country variant1 = new CountryDao().read(variant1ID);
+                Country variant2 = new CountryDao().read(variant2ID);
+                Country variant3 = new CountryDao().read(variant3ID);
+                Country variant4 = new CountryDao().read(variant4ID);
                 flagQuizzes.add(new FlagQuiz(flagQuizID, answerCountry, variant1, variant2, variant3, variant4));
             }
             return flagQuizzes;

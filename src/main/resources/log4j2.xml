@@ -15,10 +15,10 @@
     </Appenders>
 
     <Loggers>
-        <Logger name = "WG.by.fpmibsu.servlets.Login" level = "trace">
+        <Logger name = "WG.by.fpmibsu.servlets.LoginServlet" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
-        <Logger name = "WG.by.fpmibsu.servlets.Register" level = "trace">
+        <Logger name = "WG.by.fpmibsu.servlets.RegistrationServlet" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
         <Logger name = "WG.by.fpmibsu.servlets.HomeServlet" level = "trace">
@@ -76,9 +76,6 @@
             <AppenderRef ref="LogFile"/>
         </Logger>
         <Logger name = "WG.by.fpmibsu.entity.VisitorPrototype" level = "trace">
-            <AppenderRef ref="LogFile"/>
-        </Logger>
-        <Logger name = "WG.by.fpmibsu.dao.ConnectionCreator" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
         <Logger name = "WG.by.fpmibsu.dao.FlagQuizDao" level = "trace">

@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapQuizDao implements ModeDao<Integer, MapQuiz> {
+public class MapQuizDao extends ConnectionInit implements ModeDao<Integer, MapQuiz> {
     final private String create = "INSERT INTO MapQuiz (MapQuiz_ID, Country_ID) VALUES (?, ?)";
     final private String read = "SELECT * FROM MapQuiz WHERE MapQuiz_ID = ?";
     final private String update = "UPDATE MapQuiz SET Country_ID = ? WHERE MapQuiz_ID = ?";
@@ -16,13 +16,14 @@ public class MapQuizDao implements ModeDao<Integer, MapQuiz> {
     final private String count = "SELECT COUNT(*) AS quantity FROM MapQuiz;";
     Connection connection;
 
-    public MapQuizDao(Connection connection) {
-        this.connection = connection;
+    public MapQuizDao() throws DaoException {
+        super();
     }
 
     @Override
-    public boolean create(MapQuiz mapQuiz, Connection connection) throws DaoException {
+    public boolean create(MapQuiz mapQuiz) throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(create);
             statement.setInt(1, mapQuiz.getMapQuizID());
             statement.setString(2, String.valueOf(mapQuiz.getCountry().getID()));
@@ -35,15 +36,15 @@ public class MapQuizDao implements ModeDao<Integer, MapQuiz> {
     }
 
     @Override
-    public MapQuiz read(Integer id, Connection connection) throws DaoException {
+    public MapQuiz read(Integer id) throws DaoException {
+        connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(read)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 int flagQuizID = resultSet.getInt("MapQuiz_ID");
                 int answerCountryID = resultSet.getInt("Country_ID");
-                connection = ConnectionCreator.createConnection();
-                Country answerCountry = new CountryDao(connection).read(answerCountryID, connection);
+                Country answerCountry = new CountryDao().read(answerCountryID);
                 return new MapQuiz(flagQuizID, answerCountry);
             } else {
                 return null;
@@ -54,8 +55,9 @@ public class MapQuizDao implements ModeDao<Integer, MapQuiz> {
     }
 
     @Override
-    public MapQuiz update(MapQuiz mapQuiz, Connection connection) throws DaoException {
+    public MapQuiz update(MapQuiz mapQuiz) throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(update);
             statement.setString(1, String.valueOf(mapQuiz.getCountry().getCountyID()));
             statement.setInt(2, Integer.parseInt(String.valueOf(mapQuiz.getMapQuizID())));
@@ -69,8 +71,9 @@ public class MapQuizDao implements ModeDao<Integer, MapQuiz> {
             throw new DaoException("Error updating map quiz", e);
         }
     }
-    public int returnCount(Connection connection) throws DaoException {
+    public int returnCount() throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             String query = count;
             int quantity = -1;
             Statement statement = connection.createStatement();
@@ -90,8 +93,9 @@ public class MapQuizDao implements ModeDao<Integer, MapQuiz> {
     }
 
     @Override
-    public boolean delete(Integer id, Connection connection) throws DaoException {
+    public boolean delete(Integer id) throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(delete);
             statement.setInt(1, id);
             int rowsDeleted = statement.executeUpdate();
@@ -103,8 +107,9 @@ public class MapQuizDao implements ModeDao<Integer, MapQuiz> {
     }
 
     @Override
-    public List<MapQuiz> readAll(Connection connection) throws DaoException {
+    public List<MapQuiz> readAll() throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             List<MapQuiz> mapQuizzes = new ArrayList<>();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(readAll);
@@ -130,12 +135,11 @@ public class MapQuizDao implements ModeDao<Integer, MapQuiz> {
         ModeDao.super.close(connection);
     }
 
-    private MapQuiz createFromResultSet(ResultSet resultSet) throws SQLException {
+    private MapQuiz createFromResultSet(ResultSet resultSet) throws SQLException, DaoException {
         int mapQuizID = resultSet.getInt("MapQuiz_ID");
         int countryCode = resultSet.getInt("Country_ID");
-        Connection connection1 = ConnectionCreator.createConnection();
-        CountryDao countryDao = new CountryDao(connection1);
-        Country country = countryDao.read(countryCode, connection1);
+        CountryDao countryDao = new CountryDao();
+        Country country = countryDao.read(countryCode);
         return new MapQuiz(mapQuizID, country);
     }
 }

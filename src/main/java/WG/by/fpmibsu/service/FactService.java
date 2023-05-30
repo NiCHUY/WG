@@ -15,16 +15,14 @@ import java.sql.SQLException;
 public class FactService {
     private static final Logger LOGGER = LogManager.getLogger(FlagService.class);
     public static int returnNum() throws SQLException, DaoException {
-        Connection connection = ConnectionCreator.createConnection();
-        FactQuizDao factQuizDao = new FactQuizDao(connection);
-        int count = factQuizDao.returnCount(connection);
+        FactQuizDao factQuizDao = new FactQuizDao();
+        int count = factQuizDao.returnCount();
         return (int) (Math.random() * count);
     }
     public static void init(HttpServletRequest req) throws SQLException, DaoException {
         LOGGER.trace("Initialising FactQuiz question.");
-        Connection connection = ConnectionCreator.createConnection();
-        FactQuizDao factQuizDao = new FactQuizDao(connection);
-        FactQuiz factQuiz = factQuizDao.read(returnNum(),connection);
+        FactQuizDao factQuizDao = new FactQuizDao();
+        FactQuiz factQuiz = factQuizDao.read(returnNum());
         req.setAttribute("fact",(factQuiz.getFact()));
         req.setAttribute("o1", factQuiz.getFirstVariant().getName());
         req.setAttribute("o2", factQuiz.getSecondVariant().getName());
@@ -34,24 +32,21 @@ public class FactService {
     }
     public static boolean answer(HttpServletRequest request) throws SQLException, DaoException {
         LOGGER.trace("Getting the answer to FactQuiz question.");
-        Connection connection = ConnectionCreator.createConnection();
-        FactQuizDao factQuizDao = new FactQuizDao(connection);
-        FactQuiz factQuiz = factQuizDao.read(0,connection);
+        FactQuizDao factQuizDao = new FactQuizDao();
+        FactQuiz factQuiz = factQuizDao.read(0);
         HttpSession session = request.getSession();
         int ID = (int) session.getAttribute("ID");
         int answer = factQuiz.getAnswer();
         int var = Integer.parseInt(request.getParameter("option1"));
-        Connection connection1 = ConnectionCreator.createConnection();
-        UserDao userDao = new UserDao(connection1);
-        User user = userDao.read(ID, connection1);
-        connection1 = ConnectionCreator.createConnection();
+        UserDao userDao = new UserDao();
+        User user = userDao.read(ID);
         if (answer == var) {
             user.setFactQuizPassed(user.getFactQuizFailed()+1);
-            userDao.update(ID, user, connection1);
+            userDao.update(ID, user);
             return true;
         } else{
             user.setFactQuizFailed(user.getFactQuizFailed()+1);
-            userDao.update(ID, user, connection1);
+            userDao.update(ID, user);
             return false;
         }
     }

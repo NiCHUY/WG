@@ -1,14 +1,11 @@
 package WG.by.fpmibsu.service;
 
-import WG.Main;
-import WG.by.fpmibsu.dao.ConnectionCreator;
 import WG.by.fpmibsu.dao.DaoException;
 import WG.by.fpmibsu.dao.UserDao;
 import WG.by.fpmibsu.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -19,10 +16,8 @@ public class LoginService {
     private static final Logger LOGGER = LogManager.getLogger(LoginService.class);
     public static User login(String name, String password) throws DaoException, SQLException {
         LOGGER.trace("Entering login method Service.");
-        Connection connection = ConnectionCreator.createConnection();
-        UserDao userDao = new UserDao(connection);
-        connection = ConnectionCreator.createConnection();
-        User userLog = userDao.readByName(name, connection);
+        UserDao userDao = new UserDao();
+        User userLog = userDao.readByName(name);
         if (userLog != null) {
             if (Objects.equals(gPass(userLog.getPassword()), gPass(password))){
                 return userLog;

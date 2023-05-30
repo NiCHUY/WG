@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDao implements VisitorDao<Integer, User> {
+public class UserDao extends ConnectionInit implements VisitorDao<Integer, User> {
     final private String create = "INSERT INTO UserWG (ID, Nickname, Password, FlagPassed, MapPassed," +
             " FactQuizPassed, CompareFactsPassed, FlagFailed, MapFailed, FactQuizFailed," +
             " CompareFactsFailed, UserMark, IsAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -19,13 +19,14 @@ public class UserDao implements VisitorDao<Integer, User> {
     final private String readAll = "SELECT * FROM UserWG";
     Connection connection;
 
-    public UserDao(Connection connection) {
-        this.connection = connection;
+    public UserDao() throws DaoException {
+        super();
     }
 
     @Override
-    public boolean create(User user, Connection connection) throws DaoException {
+    public boolean create(User user) throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(create);
             statement.setInt(1, user.getID());
             statement.setString(2, user.getNickname());
@@ -49,8 +50,9 @@ public class UserDao implements VisitorDao<Integer, User> {
     }
 
     @Override
-    public User read(Integer id, Connection connection) throws DaoException {
+    public User read(Integer id) throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(read);
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
@@ -69,8 +71,9 @@ public class UserDao implements VisitorDao<Integer, User> {
         }
     }
 
-    public User readByName(String nickname, Connection connection) throws DaoException {
+    public User readByName(String nickname) throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(readByName);
             statement.setString(1, nickname);
             ResultSet resultSet = statement.executeQuery();
@@ -90,8 +93,9 @@ public class UserDao implements VisitorDao<Integer, User> {
     }
 
     @Override
-    public User update(Integer id, User user, Connection connection) throws DaoException {
+    public User update(Integer id, User user) throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(update);
             statement.setInt(1, user.getID());
             statement.setString(2, user.getNickname());
@@ -118,8 +122,9 @@ public class UserDao implements VisitorDao<Integer, User> {
     }
 
     @Override
-    public boolean delete(Integer id, Connection connection) throws DaoException {
+    public boolean delete(Integer id) throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(delete);
             statement.setInt(1, id);
             int rowsDeleted = statement.executeUpdate();
@@ -131,8 +136,9 @@ public class UserDao implements VisitorDao<Integer, User> {
     }
 
     @Override
-    public List<User> readAll(Connection connection) throws DaoException {
+    public List<User> readAll() throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             List<User> users = new ArrayList<>();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(readAll);
@@ -148,8 +154,9 @@ public class UserDao implements VisitorDao<Integer, User> {
         }
     }
 
-    public int returnCount(Connection connection) throws DaoException {
+    public int returnCount() throws DaoException {
         try {
+            connection = connectionPool.getConnection();
             String query = count;
             int quantity = -1;
             Statement statement = connection.createStatement();

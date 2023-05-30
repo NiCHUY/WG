@@ -25,7 +25,7 @@ public class AnswerServlet extends HttpServlet {
             LOGGER.trace("Entering Answer Servlet.");
             HttpSession session = request.getSession();
             int index = (int) session.getAttribute("ID");
-            AnswerService.post(request, response, index);
+            AnswerService.post(request, index);
             getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
         } catch (SQLException | DaoException e) {
             LOGGER.error("Failed to execute Answer Servlet.");
