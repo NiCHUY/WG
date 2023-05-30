@@ -1,0 +1,79 @@
+body {
+    font-size: 30px;
+    font-family: "Gayathri Thin", serif;
+    background: linear-gradient(45deg, #fffed9, #9aab8f);
+    color: #333;
+    padding: 285px;
+    margin-left: 200px;
+}
+
+.guess-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.form-input {
+    margin-left: 250px;
+}
+
+.form-input label {
+    margin-left: 250px;
+    display: block;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.form-input input[type="radio"] {
+    transform: scale(4); /* Измените размер radio-кнопок */
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #065e03;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 25px;
+    margin: 0;
+}
+
+.footer {
+    background-color: #254f3e;
+    margin-left: -600px;
+    bottom: -220px;
+    height: 75px;
+    width: 183.5%;
+    text-align: center;
+    color: white;
+}
+
+.footer a {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+}

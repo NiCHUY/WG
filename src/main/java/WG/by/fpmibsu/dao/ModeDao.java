@@ -1,6 +1,7 @@
 package WG.by.fpmibsu.dao;
 
 import WG.by.fpmibsu.entity.ModePrototype;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;

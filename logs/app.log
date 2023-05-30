@@ -212,3 +212,177 @@
 2023-05-30 15:44:50 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
 2023-05-30 15:44:53 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.servlets.AnswerServlet - Entering Answer Servlet.
 2023-05-30 15:44:53 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.AnswerService - Redirecting from quiz
+2023-05-30 16:19:01 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.RegistrationServlet - Entering Register Servlet.
+2023-05-30 16:19:01 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.RegistrationService - Entering Registration Service.
+2023-05-30 16:19:02 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.RegistrationServlet - Exiting Register Servlet.
+2023-05-30 16:19:37 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:19:37 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:19:38 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.servlets.LoginServlet - Exiting Login servlet.
+2023-05-30 16:20:00 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:20:00 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:20:00 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 16:20:03 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:20:07 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:20:11 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.AnswerServlet - Entering Answer Servlet.
+2023-05-30 16:20:11 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.AnswerService - Redirecting from quiz
+2023-05-30 16:20:22 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.FlagService - Initialising FactQuiz question.
+2023-05-30 16:20:37 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.servlets.FlagServlet - Entering Fact Servlet.
+2023-05-30 16:20:37 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FactQuiz question.
+2023-05-30 16:20:40 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.servlets.AnswerServlet - Entering Answer Servlet.
+2023-05-30 16:20:40 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.AnswerService - Redirecting from quiz
+2023-05-30 16:25:38 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.RegistrationServlet - Entering Register Servlet.
+2023-05-30 16:25:38 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.RegistrationService - Entering Registration Service.
+2023-05-30 16:25:39 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.RegistrationServlet - Exiting Register Servlet.
+2023-05-30 16:25:42 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:25:42 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:25:42 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 16:25:52 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:25:58 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:26:17 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.servlets.AnswerServlet - Entering Answer Servlet.
+2023-05-30 16:26:17 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.service.AnswerService - Redirecting from quiz
+2023-05-30 16:31:05 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.servlets.RegistrationServlet - Entering Register Servlet.
+2023-05-30 16:31:05 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.service.RegistrationService - Entering Registration Service.
+2023-05-30 16:31:07 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.servlets.RegistrationServlet - Exiting Register Servlet.
+2023-05-30 16:31:28 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:31:28 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:31:28 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 16:31:46 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:31:53 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:33:42 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:33:42 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:33:43 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 16:33:57 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:34:02 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:43:29 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:43:29 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:43:30 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 16:43:34 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:43:38 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:43:39 [http-nio-8082-exec-10] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:45:35 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:45:35 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:45:36 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 16:45:39 [http-nio-8082-exec-10] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:45:40 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:45:45 [http-nio-8082-exec-2] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:46:28 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:46:28 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:46:29 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 16:46:33 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:46:38 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:48:57 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 16:48:57 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 16:48:59 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 16:49:02 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 16:49:22 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 16:49:26 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.servlets.AnswerServlet - Entering Answer Servlet.
+2023-05-30 16:49:26 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.AnswerService - Redirecting from quiz
+2023-05-30 18:20:17 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 18:20:17 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 18:20:17 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 18:20:17 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 18:20:18 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 18:20:18 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 18:20:27 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 18:20:27 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 18:20:29 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.LoginServlet - Exiting Login servlet.
+2023-05-30 18:20:36 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.servlets.RegistrationServlet - Entering Register Servlet.
+2023-05-30 18:20:36 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.service.RegistrationService - Entering Registration Service.
+2023-05-30 18:20:37 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.servlets.RegistrationServlet - Exiting Register Servlet.
+2023-05-30 18:20:42 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 18:20:42 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 18:20:42 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 18:20:48 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 18:20:53 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 18:21:06 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.AnswerServlet - Entering Answer Servlet.
+2023-05-30 18:21:06 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.AnswerService - Redirecting from quiz
+2023-05-30 18:25:16 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 18:25:16 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 18:25:16 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 18:25:16 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 18:25:17 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 18:25:17 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 18:25:20 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:27:38 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:27:38 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:27:39 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:27:42 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:29:10 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:29:10 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:29:11 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:29:14 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:29:24 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 19:29:27 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:33:55 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:33:55 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:33:55 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:34:10 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:35:44 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:35:44 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:35:45 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:36:20 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:38:16 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:38:16 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:38:16 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:38:23 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:38:58 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:39:06 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:39:06 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:39:07 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Exiting Login servlet.
+2023-05-30 19:39:10 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:39:10 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:39:11 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:41:54 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:41:54 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:41:54 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:41:54 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:41:55 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:41:55 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:42:34 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:42:34 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:42:35 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:42:38 [http-nio-8082-exec-1] TRACE WG.by.fpmibsu.service.FlagService - Initialising FactQuiz question.
+2023-05-30 19:42:55 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:42:55 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:42:55 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:42:56 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:43:01 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:43:06 [http-nio-8082-exec-10] TRACE WG.by.fpmibsu.service.FlagService - Initialising FactQuiz question.
+2023-05-30 19:45:56 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:45:56 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:45:57 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:46:01 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.FlagService - Initialising FactQuiz question.
+2023-05-30 19:46:12 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:46:33 [http-nio-8082-exec-9] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:49:02 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.FlagServlet - Entering Flag Servlet.
+2023-05-30 19:49:02 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 19:51:55 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:51:55 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:51:56 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:52:01 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Initialising FactQuiz question.
+2023-05-30 19:53:18 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:53:18 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:53:19 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:53:27 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.FlagService - Initialising FactQuiz question.
+2023-05-30 19:55:56 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:55:56 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:55:57 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:55:57 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:55:57 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:55:58 [http-nio-8082-exec-6] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:55:59 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:56:07 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 19:56:10 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.servlets.AnswerServlet - Entering Answer Servlet.
+2023-05-30 19:56:10 [http-nio-8082-exec-7] TRACE WG.by.fpmibsu.service.AnswerService - Redirecting from quiz
+2023-05-30 19:56:12 [http-nio-8082-exec-8] TRACE WG.by.fpmibsu.service.FlagService - Initialising FlagQuiz question.
+2023-05-30 19:56:27 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.FlagService - Getting the answer to FlagQuiz question.
+2023-05-30 19:56:30 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.AnswerServlet - Entering Answer Servlet.
+2023-05-30 19:56:30 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.AnswerService - Redirecting from quiz
+2023-05-30 19:58:03 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:58:03 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:58:04 [http-nio-8082-exec-3] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:58:09 [http-nio-8082-exec-4] TRACE WG.by.fpmibsu.service.FlagService - Initialising FactQuiz question.
+2023-05-30 19:58:55 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.servlets.LoginServlet - Entering Login servlet.
+2023-05-30 19:58:55 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login method Service.
+2023-05-30 19:58:56 [http-nio-8082-exec-5] TRACE WG.by.fpmibsu.service.LoginService - Entering login redirect method Service.
+2023-05-30 19:58:59 [http-nio-8082-exec-2] TRACE WG.by.fpmibsu.service.FlagService - Initialising FactQuiz question.

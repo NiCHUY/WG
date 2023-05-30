@@ -24,8 +24,8 @@ public class FlagServlet extends HttpServlet {
             LOGGER.trace("Entering Flag Servlet.");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
             if (FlagService.answer(request)) {
-                getServletContext().getRequestDispatcher("/ifTrue.jsp").forward(request,response);
-            } else getServletContext().getRequestDispatcher("/ifFalse.jsp").forward(request,response);
+                getServletContext().getRequestDispatcher("/true.jsp").forward(request,response);
+            } else getServletContext().getRequestDispatcher("/false.jsp").forward(request,response);
         }
         catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException |
                ClassNotFoundException | SQLException | DaoException e) {

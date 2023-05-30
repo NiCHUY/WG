@@ -63,7 +63,7 @@ public class UserDao extends ConnectionInit implements VisitorDao<Integer, User>
             resultSet.close();
             statement.close();
             if (user == null) {
-                throw new DaoException("User not found with ID " + id);
+                throw new DaoException("User not found with ID");
             }
             return user;
         } catch (SQLException e) {
@@ -97,19 +97,19 @@ public class UserDao extends ConnectionInit implements VisitorDao<Integer, User>
         try {
             connection = connectionPool.getConnection();
             PreparedStatement statement = connection.prepareStatement(update);
-            statement.setInt(1, user.getID());
-            statement.setString(2, user.getNickname());
-            statement.setString(3, user.getPassword());
-            statement.setInt(4, user.getFlagPassed());
-            statement.setInt(5, user.getMapPassed());
-            statement.setInt(6, user.getFactQuizPassed());
-            statement.setInt(7, user.getCompareFactsPassed());
-            statement.setInt(8, user.getFlagFailed());
-            statement.setInt(9, user.getMapFailed());
-            statement.setInt(10, user.getFactQuizFailed());
-            statement.setInt(11, user.getCompareFactsFailed());
-            statement.setDouble(12, user.getUserMark());
-            statement.setBoolean(13, user.isAdmin());
+            statement.setString(1, user.getNickname());
+            statement.setString(2, user.getPassword());
+            statement.setInt(3, user.getFlagPassed());
+            statement.setInt(4, user.getMapPassed());
+            statement.setInt(5, user.getFactQuizPassed());
+            statement.setInt(6, user.getCompareFactsPassed());
+            statement.setInt(7, user.getFlagFailed());
+            statement.setInt(8, user.getMapFailed());
+            statement.setInt(9, user.getFactQuizFailed());
+            statement.setInt(10, user.getCompareFactsFailed());
+            statement.setDouble(11, user.getUserMark());
+            statement.setBoolean(12, user.isAdmin());
+            statement.setInt(13, id);
             int rowsUpdated = statement.executeUpdate();
             statement.close();
             if (rowsUpdated == 0) {

@@ -1,0 +1,39 @@
+body {
+    font-size: 30px;
+    font-family: "Gayathri Thin", serif;
+    background: linear-gradient(45deg, #fffed9, #9aab8f);
+    color: #333;
+    padding: 285px;
+    margin-left: 200px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #065e03;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer {
+    background-color: #254f3e;
+    margin-top: 300px;
+    margin-left: -800px;
+    height: 75px;
+    width: 204%;
+    text-align: center;
+    color: white;
+}
+
+.footer a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

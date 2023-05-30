@@ -1,6 +1,5 @@
 package WG.by.fpmibsu.entity;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class Country implements Comparable {

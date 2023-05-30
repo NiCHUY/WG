@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FactQuizDao extends ConnectionInit implements ModeDao<Integer, FactQuiz> {
-    private final String create = "INSERT INTO FactQuiz (FactText, Answer, Variant1," +
-            " Variant2, Variant3, Variant4) VALUES (?, ?, ?, ?, ?, ?)";
+    private final String create = "INSERT INTO FactQuiz (FactQuiz_ID, FactText, Answer, Variant1," +
+            " Variant2, Variant3, Variant4) VALUES (?, ?, ?, ?, ?, ?, ?)";
     private final String read = "SELECT * FROM FactQuiz WHERE FactQuiz_ID = ?";
     private final String update = "UPDATE FactQuiz SET FactText = ?, Answer = ?, Variant1 = ?," +
             " Variant2 = ?, Variant3 = ?, Variant4 = ? WHERE FactQuiz_ID  = ?";
@@ -28,12 +28,13 @@ public class FactQuizDao extends ConnectionInit implements ModeDao<Integer, Fact
     public boolean create(FactQuiz factQuiz) throws DaoException {
         connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(create)) {
-            statement.setString(1, factQuiz.getFact());
-            statement.setInt(2, factQuiz.getAnswer());
-            statement.setInt(3, factQuiz.getFirstVariant().getID());
-            statement.setInt(4, factQuiz.getSecondVariant().getID());
-            statement.setInt(5, factQuiz.getThirdVariant().getID());
-            statement.setInt(6, factQuiz.getFourthVariant().getID());
+            statement.setInt(1, factQuiz.getFactQuizID());
+            statement.setString(2, factQuiz.getFact());
+            statement.setInt(3, factQuiz.getAnswer());
+            statement.setInt(4, factQuiz.getFirstVariant().getID());
+            statement.setInt(5, factQuiz.getSecondVariant().getID());
+            statement.setInt(6, factQuiz.getThirdVariant().getID());
+            statement.setInt(7, factQuiz.getFourthVariant().getID());
             int rowsInserted = statement.executeUpdate();
             return rowsInserted > 0;
         } catch (SQLException e) {

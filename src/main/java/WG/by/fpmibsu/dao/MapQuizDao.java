@@ -1,7 +1,6 @@
 package WG.by.fpmibsu.dao;
-import WG.by.fpmibsu.entity.Country;
-import WG.by.fpmibsu.entity.FlagQuiz;
 import WG.by.fpmibsu.entity.MapQuiz;
+import WG.by.fpmibsu.entity.Country;
 
 import java.sql.*;
 import java.util.ArrayList;

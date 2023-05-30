@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <title>Title</title>
+    <title>What flag is it?</title>
 </head>
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/flag.css">
 <html lang="en">
-    <meta charset="UTF-8">
-    <title>What Flag is it?</title>
+<meta charset="UTF-8">
+<title>What Flag is it?</title>
 <body>
-<img src = "${img}" alt = "error">
+<img src="${img}" alt="error">
 <div class="form-container">
     <h1>Guess Flag</h1></div>
 <form action="flag" method="post">
@@ -17,5 +17,8 @@
     <input type="radio" name="option" value="4"> ${o4} <br>
     <input type="submit" value="Submit"/>
 </form>
+<div class="footer"><h2>
+    <a href="login.html">Exit</a>
+</h2></div>
 </body>
 </html>

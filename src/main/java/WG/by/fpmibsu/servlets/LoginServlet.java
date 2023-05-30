@@ -1,8 +1,8 @@
 package WG.by.fpmibsu.servlets;
 
 import WG.by.fpmibsu.dao.DaoException;
-import WG.by.fpmibsu.service.LoginService;
 import WG.by.fpmibsu.entity.User;
+import WG.by.fpmibsu.service.LoginService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,8 +32,9 @@ public class LoginServlet extends HttpServlet {
                 response.setContentType("text/html");
                 response.setCharacterEncoding("UTF-8");
                 LoginService.loginRedirecting(request, user);
-
-                getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
+                if (user.isAdmin()){
+                   response.sendRedirect("adminJob.html");
+                }else getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
                 response.sendRedirect("home.jsp");
             } else {
                 out.println("You cant sign up with such Username or Password");

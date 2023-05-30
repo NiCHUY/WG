@@ -2,7 +2,6 @@ package WG.by.fpmibsu.servlets;
 
 import WG.by.fpmibsu.dao.DaoException;
 import WG.by.fpmibsu.service.FactService;
-import WG.by.fpmibsu.service.FlagService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,8 +23,8 @@ public class FactServlet extends HttpServlet {
             LOGGER.trace("Entering Fact Servlet.");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
             if (FactService.answer(request)) {
-                getServletContext().getRequestDispatcher("/ifTrue.jsp").forward(request,response);
-            } else getServletContext().getRequestDispatcher("/ifFalse.jsp").forward(request,response);
+                getServletContext().getRequestDispatcher("/true.jsp").forward(request,response);
+            } else getServletContext().getRequestDispatcher("/false.jsp").forward(request,response);
         }
         catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException |
                ClassNotFoundException | SQLException | DaoException e) {
@@ -40,7 +39,6 @@ public class FactServlet extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
             FactService.init(req);
             getServletContext().getRequestDispatcher("/fact.jsp").forward(req,resp);
-
         }
         catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException |
                ClassNotFoundException | SQLException | DaoException e) {

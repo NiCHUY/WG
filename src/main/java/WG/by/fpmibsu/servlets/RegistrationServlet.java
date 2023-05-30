@@ -1,8 +1,8 @@
 package WG.by.fpmibsu.servlets;
 
 import WG.by.fpmibsu.dao.DaoException;
-import WG.by.fpmibsu.service.RegistrationService;
 import WG.by.fpmibsu.entity.User;
+import WG.by.fpmibsu.service.RegistrationService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
