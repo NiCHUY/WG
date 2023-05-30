@@ -40,7 +40,7 @@ public class FactService {
         HttpSession session = request.getSession();
         int ID = (int) session.getAttribute("ID");
         int answer = factQuiz.getAnswer();
-        int var = Integer.parseInt(request.getParameter("option"));
+        int var = Integer.parseInt(request.getParameter("option1"));
         Connection connection1 = ConnectionCreator.createConnection();
         UserDao userDao = new UserDao(connection1);
         User user = userDao.read(ID, connection1);
