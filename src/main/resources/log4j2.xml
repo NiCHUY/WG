@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <property name="pattern_file">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{5} - %msg%n
+        </property>
+        <property name="pattern_short">%d{HH:mm:ss} %-5level %logger{5} - %msg%n
+        </property>
+    </Properties>
+
+    <Appenders>
+        <File name="LogFile" fileName="C:\Users\tr07s\IdeaProjects\WorlGuru\logs\app.log" bufferedIO="true">
+            <PatternLayout pattern="${pattern_file}"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name = "WG.by.fpmibsu.servlets.Login" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.servlets.Register" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.servlets.HomeServlet" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.servlets.FlagServlet" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.servlets.FactServlet" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.servlets.AnswerServlet" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.service.LoginService" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.service.HomeService" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.service.FlagService" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.service.FactService" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.service.AnswerService" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.service.RegistrationService" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.User" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.FlagQuiz" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.CompareFactsQuiz" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.Country" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.FactQuiz" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.MapQuiz" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.ModePrototype" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.Visitor" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.entity.VisitorPrototype" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.ConnectionCreator" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.FlagQuizDao" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.FactQuizDao" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.UserDao" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.CountryDao" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.CompareFactsQuizDao" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.DaoException" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.MapQuizDao" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.ModeDao" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.dao.VisitorDao" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>

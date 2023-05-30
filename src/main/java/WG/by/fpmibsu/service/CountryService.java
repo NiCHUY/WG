@@ -28,7 +28,7 @@ public class CountryService {
         MapQuizDao mapQuizDao = new MapQuizDao(connection);
         MapQuiz mapQuiz = mapQuizDao.read(returnNum(),connection);
         req.setAttribute("img","image/territory/" + (mapQuiz.getCountry().getTerritory().replace(" ", ""))  + ".png");
-        req.setAttribute("fact", mapQuiz.getCountry().getFact());
+        req.setAttribute("fact", mapQuiz.getCountry().getFact().replace("_", " "));
         req.setAttribute("area", mapQuiz.getCountry().getArea());
         req.setAttribute("population", mapQuiz.getCountry().getPopulation());
         req.setAttribute("continent", mapQuiz.getCountry().getContinent());
@@ -41,7 +41,7 @@ public class CountryService {
         MapQuiz mapQuiz = mapQuizDao.read(returnNum(),connection);
         HttpSession session = request.getSession();
         int ID = (int) session.getAttribute("ID");
-        String answer = mapQuiz.getCountry().getName();
+        String answer = mapQuiz.getCountry().getName().replace(" ", "");
         String var = request.getParameter("answer").replace(" ", "");
         Connection connection1 = ConnectionCreator.createConnection();
         UserDao userDao = new UserDao(connection1);

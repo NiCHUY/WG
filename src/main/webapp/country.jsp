@@ -16,7 +16,7 @@ Continent: ${continent} <br>
     <h1>Guess Flag</h1></div>
 <form action="country" method="post">
     <div class="form-input">
-        <label for="answer"></label><input type="text" id="answer" name="answer" required placeholder="Answer">
+        <label for="answer"></label><input type="text" id="answer" name="answer" required placeholder="answer">
     </div>
     <input type="submit" value="Submit"/>
 </form>
