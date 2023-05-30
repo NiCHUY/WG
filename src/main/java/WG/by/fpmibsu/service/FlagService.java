@@ -10,7 +10,11 @@ import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class FlagService {
+    private static final Logger LOGGER = LogManager.getLogger(FlagService.class);
     public static int returnNum() throws SQLException, DaoException {
         Connection connection = ConnectionCreator.createConnection();
         FlagQuizDao flagQuizDao = new FlagQuizDao(connection);
@@ -18,6 +22,7 @@ public class FlagService {
         return (int) (Math.random() * count);
     }
     public static void init(HttpServletRequest req) throws SQLException, DaoException {
+        LOGGER.trace("Initialising FlagQuiz question.");
         Connection connection = ConnectionCreator.createConnection();
         FlagQuizDao flagQuizDao = new FlagQuizDao(connection);
         FlagQuiz flagQuiz = flagQuizDao.read(0,connection);
@@ -29,6 +34,7 @@ public class FlagService {
 
     }
     public static boolean answer(HttpServletRequest request) throws SQLException, DaoException {
+        LOGGER.trace("Getting the answer to FlagQuiz question.");
         Connection connection = ConnectionCreator.createConnection();
         FlagQuizDao flagQuizDao = new FlagQuizDao(connection);
         FlagQuiz flagQuiz = flagQuizDao.read(0,connection);
@@ -38,15 +44,15 @@ public class FlagService {
         int var = Integer.parseInt(request.getParameter("option"));
         Connection connection1 = ConnectionCreator.createConnection();
         UserDao userDao = new UserDao(connection1);
-        User user = userDao.read(ID, connection);
-        connection1 = ConnectionCreator.createConnection();
+        User user = userDao.read(ID, connection1);
+        connection = ConnectionCreator.createConnection();
         if (answer == var) {
             user.setFlagPassed(user.getFlagPassed()+1);
-            userDao.update(ID, user, connection1);
+            userDao.update(ID, user, connection);
             return true;
         } else{
             user.setFlagFailed(user.getFlagFailed()+1);
-            userDao.update(ID, user, connection1);
+            userDao.update(ID, user, connection);
             return false;
         }
     }

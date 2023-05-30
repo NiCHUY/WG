@@ -9,8 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class HomeService {
+    private static final Logger LOGGER = LogManager.getLogger(HomeService.class);
     public static void homePageConfig(HttpServletRequest req, int index) throws SQLException, DaoException {
+        LOGGER.trace("Entering Home Service.");
         Connection connection = ConnectionCreator.createConnection();
         UserDao userDao = new UserDao(connection);
         User user = userDao.read(index,connection);

@@ -15,6 +15,8 @@ public class FactQuizDao implements ModeDao<Integer, FactQuiz> {
             " Variant2 = ?, Variant3 = ?, Variant4 = ? WHERE FactQuiz_ID  = ?";
     private final String delete = "DELETE FROM FactQuiz WHERE FactQuiz_ID  = ?";
     private final String readAll = "SELECT * FROM FactQuiz";
+    final private String count = "SELECT COUNT(*) AS quantity FROM FactQuiz;";
+
 
     Connection connection;
 
@@ -37,6 +39,25 @@ public class FactQuizDao implements ModeDao<Integer, FactQuiz> {
             throw new DaoException("Error creating FactQuiz", e);
         }
     }
+    public int returnCount(Connection connection) throws DaoException {
+        try {
+            String query = count;
+            int quantity = -1;
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            if (resultSet.next()) {
+                String temp = resultSet.getString("quantity");
+                quantity = Integer.parseInt(temp);
+
+            }
+            statement.close();
+            connection.close();
+            return quantity;
+        } catch (SQLException e) {
+            throw new DaoException("Error returning count", e);
+        }
+    }
 
     @Override
     public FactQuiz read(Integer id, Connection connection) throws DaoException {
@@ -44,7 +65,7 @@ public class FactQuizDao implements ModeDao<Integer, FactQuiz> {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                int factQuizID = resultSet.getInt("FactQuiz_ID ");
+                int factQuizID = resultSet.getInt("FactQuiz_ID");
                 String fact = resultSet.getString("FactText");
                 int answer = resultSet.getInt("Answer");
                 int variant1ID = resultSet.getInt("Variant1");
@@ -110,7 +131,7 @@ public class FactQuizDao implements ModeDao<Integer, FactQuiz> {
             ResultSet resultSet = statement.executeQuery(readAll);
             List<FactQuiz> factQuizzes = new ArrayList<>();
             while (resultSet.next()) {
-                int factQuizID = resultSet.getInt("FactQuiz_ID ");
+                int factQuizID = resultSet.getInt("FactQuiz_ID");
                 String fact = resultSet.getString("FactText");
                 int answer = resultSet.getInt("Answer");
                 int variant1ID = resultSet.getInt("Variant1");

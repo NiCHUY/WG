@@ -8,8 +8,13 @@ import WG.by.fpmibsu.entity.User;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class RegistrationService {
+    private static final Logger LOGGER = LogManager.getLogger(RegistrationService.class);
     public static User registration(String name, String password) throws SQLException, DaoException {
+        LOGGER.trace("Entering Registration Service.");
         Connection connection = ConnectionCreator.createConnection();
         UserDao userDao = new UserDao(connection);
         connection = ConnectionCreator.createConnection();

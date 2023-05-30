@@ -11,8 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class AnswerService {
+    private static final Logger LOGGER = LogManager.getLogger(AnswerService.class);
     public static void post(HttpServletRequest request, HttpServletResponse response, int index) throws SQLException, DaoException {
+        LOGGER.trace("Redirecting from quiz");
         Connection connection = ConnectionCreator.createConnection();
         UserDao userDao = new UserDao(connection);
         User user = userDao.read(index, connection);

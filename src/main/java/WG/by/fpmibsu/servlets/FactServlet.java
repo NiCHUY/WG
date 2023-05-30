@@ -1,7 +1,10 @@
 package WG.by.fpmibsu.servlets;
 
 import WG.by.fpmibsu.dao.DaoException;
+import WG.by.fpmibsu.service.FactService;
 import WG.by.fpmibsu.service.FlagService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,24 +15,21 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-@WebServlet("/country")
-public class FlagServlet extends HttpServlet {
+@WebServlet("/fact")
+public class FactServlet extends HttpServlet {
     private static final Logger LOGGER = LogManager.getLogger(FlagServlet.class);
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            LOGGER.trace("Entering Flag Servlet.");
+            LOGGER.trace("Entering Fact Servlet.");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
-            if (FlagService.answer(request)) {
+            if (FactService.answer(request)) {
                 getServletContext().getRequestDispatcher("/ifTrue.jsp").forward(request,response);
             } else getServletContext().getRequestDispatcher("/ifFalse.jsp").forward(request,response);
         }
         catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException |
                ClassNotFoundException | SQLException | DaoException e) {
-            LOGGER.error("Failed to execute Flag Servlet.");
+            LOGGER.error("Failed to execute Fact Servlet.");
             throw new RuntimeException(e);
         }
     }
@@ -38,8 +38,8 @@ public class FlagServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
-            FlagService.init(req);
-            getServletContext().getRequestDispatcher("/country.jsp").forward(req,resp);
+            FactService.init(req);
+            getServletContext().getRequestDispatcher("/fact.jsp").forward(req,resp);
 
         }
         catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException |

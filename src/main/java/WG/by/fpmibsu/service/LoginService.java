@@ -12,8 +12,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Objects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class LoginService {
+    private static final Logger LOGGER = LogManager.getLogger(LoginService.class);
     public static User login(String name, String password) throws DaoException, SQLException {
+        LOGGER.trace("Entering login method Service.");
         Connection connection = ConnectionCreator.createConnection();
         UserDao userDao = new UserDao(connection);
         connection = ConnectionCreator.createConnection();
@@ -25,6 +30,7 @@ public class LoginService {
         } else return null;
     }
     public static void loginRedirecting(HttpServletRequest request, User user) {
+        LOGGER.trace("Entering login redirect method Service.");
         HttpSession session = request.getSession();
         session.setAttribute("ID", user.getID());
         request.setAttribute("username", user.getNickname());

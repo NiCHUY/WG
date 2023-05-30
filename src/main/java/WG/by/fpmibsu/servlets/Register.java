@@ -14,10 +14,15 @@ import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @WebServlet("/register")
 public class Register extends HttpServlet {
+    private static final Logger LOGGER = LogManager.getLogger(Register.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        LOGGER.trace("Entering Register Servlet.");
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
 
@@ -41,5 +46,6 @@ public class Register extends HttpServlet {
                  InstantiationException | IllegalAccessException | NoSuchMethodException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+        LOGGER.trace("Exiting Register Servlet.");
     }
 }

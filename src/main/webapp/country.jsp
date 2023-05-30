@@ -2,12 +2,12 @@
 <head>
     <title>Title</title>
 </head>
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="css/main.css">
 <html lang="en">
     <meta charset="UTF-8">
     <title>What Flag is it?</title>
 <body>
-<img src = "${img}" alt = "asd">
+<img src = "${img}" alt = "error">
 <div class="form-container">
     <h1>Guess Flag</h1></div>
 <form action="country" method="post">

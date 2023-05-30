@@ -15,10 +15,15 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @WebServlet("/home.html")
 public class Login extends HttpServlet {
+    private static final Logger LOGGER = LogManager.getLogger(Login.class);
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        LOGGER.trace("Entering Login servlet.");
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         String name = request.getParameter("username");
@@ -41,5 +46,6 @@ public class Login extends HttpServlet {
             throw new RuntimeException(e);
         }
         out.close();
+        LOGGER.trace("Exiting Login servlet.");
     }
 }
