@@ -5,10 +5,6 @@ import java.util.Objects;
 public class User extends VisitorPrototype {
     int ID;
     String password;
-    double flagsPercent;
-    double compareFactsPercent;
-    double factQuizPercent;
-    double mapPercent;
     double userMark;
     boolean isAdmin;
     int flagPassed;
@@ -34,38 +30,6 @@ public class User extends VisitorPrototype {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public double getFlagsPercent() {
-        return flagsPercent;
-    }
-
-    public void setFlagsPercent(double flagsPercent) {
-        this.flagsPercent = flagsPercent;
-    }
-
-    public double getCompareFactsPercent() {
-        return compareFactsPercent;
-    }
-
-    public void setCompareFactsPercent(double compareFactsPercent) {
-        this.compareFactsPercent = compareFactsPercent;
-    }
-
-    public double getFactQuizPercent() {
-        return factQuizPercent;
-    }
-
-    public void setFactQuizPercent(double factQuizPercent) {
-        this.factQuizPercent = factQuizPercent;
-    }
-
-    public double getMapPercent() {
-        return mapPercent;
-    }
-
-    public void setMapPercent(double mapPercent) {
-        this.mapPercent = mapPercent;
     }
 
     public double getUserMark() {
@@ -174,18 +138,6 @@ public class User extends VisitorPrototype {
         this.factQuizFailed = factQuizFailed;
         this.compareFactsFailed = compareFactsFailed;
 
-        if (flagFailed+flagPassed != 0) {
-            this.flagsPercent = (double) (flagPassed / (flagPassed + flagFailed));
-        } else this.flagsPercent = 0;
-
-        if (factQuizFailed+factQuizPassed != 0) {
-            this.factQuizPercent = (double) (factQuizPassed / (factQuizPassed + factQuizFailed));
-        } else this.factQuizPercent = 0;
-
-        if (compareFactsPassed+compareFactsFailed != 0) {
-            this.compareFactsPercent = (double) (compareFactsPassed / (compareFactsFailed + compareFactsPassed));
-        } else this.mapPercent = 0;
-
         if (isAdmin) {
             this.userMark = 10;
             this.isAdmin = true;
@@ -200,10 +152,6 @@ public class User extends VisitorPrototype {
         return "User{" +
                 "ID=" + ID +
                 ", password='" + password + '\'' +
-                ", flagsPercent=" + flagsPercent +
-                ", compareFactsPercent=" + compareFactsPercent +
-                ", factQuizPercent=" + factQuizPercent +
-                ", mapPercent=" + mapPercent +
                 ", userMark=" + userMark +
                 ", isAdmin=" + isAdmin +
                 ", flagPassed=" + flagPassed +
@@ -223,11 +171,11 @@ public class User extends VisitorPrototype {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return ID == user.ID && Double.compare(user.flagsPercent, flagsPercent) == 0 && Double.compare(user.compareFactsPercent, compareFactsPercent) == 0 && Double.compare(user.factQuizPercent, factQuizPercent) == 0 && Double.compare(user.mapPercent, mapPercent) == 0 && Double.compare(user.userMark, userMark) == 0 && isAdmin == user.isAdmin && flagPassed == user.flagPassed && mapPassed == user.mapPassed && factQuizPassed == user.factQuizPassed && compareFactsPassed == user.compareFactsPassed && flagFailed == user.flagFailed && mapFailed == user.mapFailed && factQuizFailed == user.factQuizFailed && compareFactsFailed == user.compareFactsFailed && Objects.equals(password, user.password) && Objects.equals(nickname, user.nickname);
+        return ID == user.ID && Double.compare(user.userMark, userMark) == 0 && isAdmin == user.isAdmin && flagPassed == user.flagPassed && mapPassed == user.mapPassed && factQuizPassed == user.factQuizPassed && compareFactsPassed == user.compareFactsPassed && flagFailed == user.flagFailed && mapFailed == user.mapFailed && factQuizFailed == user.factQuizFailed && compareFactsFailed == user.compareFactsFailed && Objects.equals(password, user.password) && Objects.equals(nickname, user.nickname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, password, flagsPercent, compareFactsPercent, factQuizPercent, mapPercent, userMark, isAdmin, flagPassed, mapPassed, factQuizPassed, compareFactsPassed, flagFailed, mapFailed, factQuizFailed, compareFactsFailed, nickname);
+        return Objects.hash(ID, password, userMark, isAdmin, flagPassed, mapPassed, factQuizPassed, compareFactsPassed, flagFailed, mapFailed, factQuizFailed, compareFactsFailed, nickname);
     }
 }

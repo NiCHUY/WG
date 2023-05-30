@@ -36,10 +36,10 @@
     </a>
 </svg>
 <div class="country">
-    <text class="average-score-text">Average Score 1: ${res1}</text>
-    <text class="average-score-text">Average Score 2: ${res2}</text>
-    <text class="average-score-text"> Average Score 3: ${res3}</text>
-    <text class="average-score-text">Average Score 4: ${res4}</text>
+    <text class="average-score-text">Flag Accuracy: ${res1}</text>
+    <text class="average-score-text">Fact Accuracy: ${res2}</text>
+    <text class="average-score-text">CompareFacts Accuracy: ${res3}</text>
+    <text class="average-score-text">Map Accuracy: ${res4}</text>
 </div>
 <div class="footer"><h2>
     <a href="login.html">Exit</a>

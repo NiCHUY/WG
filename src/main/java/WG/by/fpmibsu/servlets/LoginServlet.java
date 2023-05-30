@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
                 response.setCharacterEncoding("UTF-8");
                 LoginService.loginRedirecting(request, user);
                 if (user.isAdmin()){
-                   response.sendRedirect("adminJob.html");
+                   response.sendRedirect("adminjob.html");
                 }else getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
                 response.sendRedirect("home.jsp");
             } else {
