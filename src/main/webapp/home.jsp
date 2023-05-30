@@ -16,7 +16,7 @@
     </a>
 </svg>
 <svg class="game-link2">
-    <a href="">
+    <a href="country">
         <rect height="200" width="400"></rect>
         <image href="image/image-removebg-preview.png" width="180" height="180" alt="game 2" x="60" y="-2"></image>
     </a>
@@ -28,7 +28,7 @@
     </a>
 </svg>
 <svg class="game-link4">
-    <a href="country">
+    <a href="flag">
         <rect height="200" width="400"></rect>
         <image href="image/flag-removebg-preview.png" width="150" height="150" alt="game 4" x="100" y="2"></image>
     </a>

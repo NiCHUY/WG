@@ -24,7 +24,7 @@ public class FactService {
         LOGGER.trace("Initialising FactQuiz question.");
         Connection connection = ConnectionCreator.createConnection();
         FactQuizDao factQuizDao = new FactQuizDao(connection);
-        FactQuiz factQuiz = factQuizDao.read(0,connection);
+        FactQuiz factQuiz = factQuizDao.read(returnNum(),connection);
         req.setAttribute("fact",(factQuiz.getFact()));
         req.setAttribute("o1", factQuiz.getFirstVariant().getName());
         req.setAttribute("o2", factQuiz.getSecondVariant().getName());
