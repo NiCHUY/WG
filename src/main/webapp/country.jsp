@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>What Flag is it?</title>
+    <title>What Country is it?</title>
     <link rel="stylesheet" href="css/country.css">
 </head>
 <body>
@@ -11,13 +11,13 @@
         <img src="${img}" alt="error">
     </div>
     <div class="info-container">
-        <p>${fact}</p>
-        <p>Area: ${area} km^2</p>
-        <p>Population: ${population} residents.</p>
-        <p>Continent: ${continent}</p>
+        <p><font size="5" color="Black" face="Arial">${fact}</font></p>
+        <p><font size="5" color="Black" face="Arial">Area: ${area}</font> km^2</p>
+        <p><font size="5" color="Black" face="Arial">Population: ${population} residents.</font></p>
+        <p><font size="5" color="Black" face="Arial">Continent: ${continent}}</font></p>
     </div>
     <div class="form-container">
-        <h1>Guess Flag</h1>
+        <h1><font size="8" color="Black" face="Arial">Guess Flag</font></h1>
     </div>
     <form action="country" method="post" class="guess-form">
         <div class="form-input">

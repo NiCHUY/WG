@@ -9,12 +9,12 @@
 <body>
 <img src="${img}" alt="error">
 <div class="form-container">
-    <h1>Guess Flag</h1></div>
+    <h1><font size="10" color="Black" face="Arial">Guess Flag</font></h1></div>
 <form action="flag" method="post">
-    <input type="radio" name="option" value="1" checked> ${o1} <br>
-    <input type="radio" name="option" value="2"> ${o2} <br>
-    <input type="radio" name="option" value="3"> ${o3} <br>
-    <input type="radio" name="option" value="4"> ${o4} <br>
+    <input type="radio" name="option" value="1" checked> <font size="6" color="Black" face="Arial">${o1}</font> <br>
+    <input type="radio" name="option" value="2"> <font size="6" color="Black" face="Arial">${o2}</font> <br>
+    <input type="radio" name="option" value="3"> <font size="6" color="Black" face="Arial">${o3}</font> <br>
+    <input type="radio" name="option" value="4"> <font size="6" color="Black" face="Arial">${o4}</font> <br>
     <input type="submit" value="Submit"/>
 </form>
 <div class="footer"><h2>

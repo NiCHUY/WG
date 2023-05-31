@@ -36,6 +36,7 @@ public class FactServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+            LOGGER.trace("Generating Fact Servlet.");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
             FactService.init(req);
             getServletContext().getRequestDispatcher("/fact.jsp").forward(req,resp);

@@ -2,6 +2,7 @@ package WG.by.fpmibsu.servlets;
 
 import WG.by.fpmibsu.dao.DaoException;
 import WG.by.fpmibsu.entity.User;
+import WG.by.fpmibsu.service.AdminService;
 import WG.by.fpmibsu.service.LoginService;
 
 import javax.servlet.ServletException;
@@ -31,17 +32,19 @@ public class LoginServlet extends HttpServlet {
             if (user != null) {
                 response.setContentType("text/html");
                 response.setCharacterEncoding("UTF-8");
-                LoginService.loginRedirecting(request, user);
                 if (user.isAdmin()){
-                   response.sendRedirect("adminjob.html");
-                }else getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
-                response.sendRedirect("home.jsp");
+                    response.sendRedirect("adminjob.html");
+                }else {
+                    LoginService.loginRedirecting(request, user);
+                    getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
+                }
             } else {
                 out.println("You cant sign up with such Username or Password");
                 Thread.sleep(1000);
                 getServletContext().getRequestDispatcher("/login.html").forward(request,response);
             }
         } catch (SQLException | DaoException | InterruptedException e) {
+            LOGGER.trace("Failed to Login.");
             throw new RuntimeException(e);
         }
         out.close();

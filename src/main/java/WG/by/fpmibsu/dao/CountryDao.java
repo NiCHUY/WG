@@ -17,20 +17,22 @@ public class CountryDao extends ConnectionInit {
     private final String readAll = "SELECT * FROM Country";
     private final String read = "SELECT * FROM Country WHERE Country_ID = ?";
     final private String count = "SELECT COUNT(*) AS quantity FROM Country;";
-    private final String create = "INSERT INTO FactQuiz (FactText, Answer, Variant1," +
-            " Variant2, Variant3, Variant4) VALUES (?, ?, ?, ?, ?, ?)";
+    private final String create = "INSERT INTO Country (Country_ID, Name, Area," +
+            " Population, Continent, Fact, Flag, Territory) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     public void CountryDAO() {}
 
-    public boolean create(FactQuiz factQuiz) throws DaoException {
+    public boolean create(Country country) throws DaoException {
         connection = connectionPool.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(create)) {
-            statement.setString(1, factQuiz.getFact());
-            statement.setInt(2, factQuiz.getAnswer());
-            statement.setInt(3, factQuiz.getFirstVariant().getID());
-            statement.setInt(4, factQuiz.getSecondVariant().getID());
-            statement.setInt(5, factQuiz.getThirdVariant().getID());
-            statement.setInt(6, factQuiz.getFourthVariant().getID());
+            statement.setInt(1, country.getID());
+            statement.setString(2, country.getName());
+            statement.setDouble(3, country.getArea());
+            statement.setInt(4, country.getPopulation());
+            statement.setString(5, country.getContinent());
+            statement.setString(6, country.getFact());
+            statement.setString(7, country.getFlag());
+            statement.setString(8, country.getTerritory());
             int rowsInserted = statement.executeUpdate();
             return rowsInserted > 0;
         } catch (SQLException e) {

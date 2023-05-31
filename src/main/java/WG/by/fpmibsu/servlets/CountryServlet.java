@@ -36,6 +36,7 @@ public class CountryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+            LOGGER.trace("Generating Country Servlet.");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
             CountryService.init(req);
             getServletContext().getRequestDispatcher("/country.jsp").forward(req,resp);

@@ -37,6 +37,7 @@ public class FlagServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+            LOGGER.trace("Generating Flag Servlet.");
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").getDeclaredConstructor().newInstance();
             FlagService.init(req);
             getServletContext().getRequestDispatcher("/flag.jsp").forward(req,resp);

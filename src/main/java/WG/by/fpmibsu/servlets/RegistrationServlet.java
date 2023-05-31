@@ -25,7 +25,6 @@ public class RegistrationServlet extends HttpServlet {
         LOGGER.trace("Entering Register Servlet.");
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-
         String name = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -44,6 +43,7 @@ public class RegistrationServlet extends HttpServlet {
             out.close();
         } catch (SQLException | DaoException | ClassNotFoundException | InvocationTargetException |
                  InstantiationException | IllegalAccessException | NoSuchMethodException | InterruptedException e) {
+            LOGGER.error("Failed to registering.");
             throw new RuntimeException(e);
         }
         LOGGER.trace("Exiting Register Servlet.");

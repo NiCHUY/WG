@@ -33,6 +33,12 @@
         <Logger name = "WG.by.fpmibsu.servlets.AnswerServlet" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
+        <Logger name = "WG.by.fpmibsu.servlets.CountryServlet" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.servlets.AdminServlet" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
         <Logger name = "WG.by.fpmibsu.service.LoginService" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
@@ -42,10 +48,16 @@
         <Logger name = "WG.by.fpmibsu.service.FlagService" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
+        <Logger name = "WG.by.fpmibsu.service.CountryService" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
         <Logger name = "WG.by.fpmibsu.service.FactService" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
         <Logger name = "WG.by.fpmibsu.service.AnswerService" level = "trace">
+            <AppenderRef ref="LogFile"/>
+        </Logger>
+        <Logger name = "WG.by.fpmibsu.service.AdminService" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
         <Logger name = "WG.by.fpmibsu.service.RegistrationService" level = "trace">
@@ -84,6 +96,7 @@
         <Logger name = "WG.by.fpmibsu.dao.FactQuizDao" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
+
         <Logger name = "WG.by.fpmibsu.dao.UserDao" level = "trace">
             <AppenderRef ref="LogFile"/>
         </Logger>
